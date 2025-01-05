@@ -14,10 +14,8 @@ container.appendChild(display);
 container.appendChild(selection);
 
 const txtArea = document.createElement("input");
-txtArea.setAttribute("type", "text");
-// txtArea.setAttribute("readonly", "readonly");
-txtArea.classList.add("txtArea");
-display.appendChild(txtArea);
+txtArea.setAttribute("type", "text"); // txtArea.setAttribute("readonly", "readonly"); txtArea.classList.add("txtArea");
+txtArea.setAttribute("readonly", "readonly");
 
 const btn = document.createElement("button");
 btn.textContent = "Clear";
