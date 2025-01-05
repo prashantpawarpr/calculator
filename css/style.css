@@ -1,0 +1,31 @@
+body {
+  display: flex;
+  justify-content: center;
+  background-color: #114;
+}
+
+#container {
+  border: 10px solid #eee;
+  border-radius: 20px;
+  margin-top: 100px;
+  display: flex;
+  width: 500px;
+  height: 700px;
+  background-color: pink;
+  flex-direction: column;
+}
+
+.txtArea {
+  width: 100%;
+}
+
+.display {
+  display: flex;
+  background-color: #eeeecc;
+  flex: 1;
+}
+.selection {
+  display: flex;
+  background-color: grey;
+  flex: 3;
+}
