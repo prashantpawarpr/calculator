@@ -1,51 +1,10 @@
 let displayValue = "";
+let operator = "";
+let secondValue = "";
 
 const clear = document.querySelector("#clear");
 const display = document.querySelector("#txtArea");
 const selection = document.querySelector("#selection");
-
-const btn = document.querySelectorAll("button");
-btn.forEach((elem) => {
-  let id = elem.id;
-
-  switch (id) {
-    case "clear":
-      func(elem, id);
-      break;
-    case "seven":
-      func(elem, id);
-      break;
-    case "eight":
-      func(elem, id);
-      break;
-    case "nine":
-      func(elem, id);
-      break;
-    case "four":
-      func(elem, id);
-      break;
-    case "five":
-      func(elem, id);
-      break;
-    case "six":
-      func(elem, id);
-      break;
-    case "one":
-      func(elem, id);
-      break;
-    case "two":
-      func(elem, id);
-      break;
-    case "three":
-      func(elem, id);
-      break;
-    case "zero":
-      func(elem, id);
-      break;
-    default:
-      console.log("default");
-  }
-});
 
 function func(elem, id) {
   elem.addEventListener("click", () => {
@@ -55,11 +14,59 @@ function func(elem, id) {
     displayValue += elem.value;
     display.value = displayValue;
     display.textContent = id.value;
+    console.log(displayValue);
   });
 }
 
 function reset() {
   console.log("reset clicked");
   displayValue = "";
+  firstvalue = "";
+  operator = "";
   display.value = displayValue;
 }
+
+function back_space() {
+  console.log("backspace button clicked");
+  console.log(displayValue);
+  displayValue = displayValue.slice(0, -1);
+  console.log(displayValue);
+  display.value = displayValue;
+}
+
+const btn = document.querySelectorAll("button");
+btn.forEach((elem) => {
+  let id = elem.id;
+
+  if (
+    id === "one" ||
+    id === "two" ||
+    id === "three" ||
+    id === "four" ||
+    id === "five" ||
+    id === "six" ||
+    id === "seven" ||
+    id === "eight" ||
+    id === "nine" ||
+    id === "zero" ||
+    id === "clear" ||
+    id === "mult" ||
+    id === "minus" ||
+    id === "plus" ||
+    id === "slash"
+  ) {
+    func(elem, id);
+  }
+  if (id === "bk") {
+    elem.addEventListener("click", back_space);
+  }
+
+  if (id === "equal") {
+    elem.addEventListener("click", () => {
+      const result = eval(displayValue);
+      displayValue = result;
+      txtArea.value = displayValue;
+      console.log(result);
+    });
+  }
+});
