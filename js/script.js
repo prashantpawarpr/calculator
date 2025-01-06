@@ -1,21 +1,65 @@
-//geting value of the main container
+let displayValue = "";
 
-const container = document.querySelector("#container");
+const clear = document.querySelector("#clear");
+const display = document.querySelector("#txtArea");
+const selection = document.querySelector("#selection");
 
-//display section
+const btn = document.querySelectorAll("button");
+btn.forEach((elem) => {
+  let id = elem.id;
 
-const display = document.createElement("div");
-const selection = document.createElement("div");
+  switch (id) {
+    case "clear":
+      func(elem, id);
+      break;
+    case "seven":
+      func(elem, id);
+      break;
+    case "eight":
+      func(elem, id);
+      break;
+    case "nine":
+      func(elem, id);
+      break;
+    case "four":
+      func(elem, id);
+      break;
+    case "five":
+      func(elem, id);
+      break;
+    case "six":
+      func(elem, id);
+      break;
+    case "one":
+      func(elem, id);
+      break;
+    case "two":
+      func(elem, id);
+      break;
+    case "three":
+      func(elem, id);
+      break;
+    case "zero":
+      func(elem, id);
+      break;
+    default:
+      console.log("default");
+  }
+});
 
-display.classList.add("display");
-selection.classList.add("selection");
+function func(elem, id) {
+  elem.addEventListener("click", () => {
+    console.log(id);
+    console.log(elem.value);
+    if (elem.value === "") reset();
+    displayValue += elem.value;
+    display.value = displayValue;
+    display.textContent = id.value;
+  });
+}
 
-container.appendChild(display);
-container.appendChild(selection);
-
-const txtArea = document.createElement("input");
-txtArea.setAttribute("type", "text"); // txtArea.setAttribute("readonly", "readonly"); txtArea.classList.add("txtArea");
-txtArea.setAttribute("readonly", "readonly");
-
-const btn = document.createElement("button");
-btn.textContent = "Clear";
+function reset() {
+  console.log("reset clicked");
+  displayValue = "";
+  display.value = displayValue;
+}
